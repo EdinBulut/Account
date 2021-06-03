@@ -1,0 +1,152 @@
+.box {
+  margin-top: 30px;
+}
+
+.alone-field {
+  width: 100%;
+  max-width: 450px;
+  min-height: 126px;
+}
+
+.columns {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 450px;
+
+  .field {
+    width: 100%;
+    min-height: 126px;
+
+    .search-box,
+    .search-input {
+      max-width: 219px;
+      width: 100%;
+    }
+  }
+
+  .field:first-of-type {
+    padding-right: 4px;
+  }
+
+  .field:last-of-type {
+    padding-left: 4px;
+  }
+}
+
+.credit-cards {
+  margin-top: 14px;
+
+  .card {
+    position: relative;
+    width: 277px;
+    cursor: pointer;
+    height: 40.2px;
+    margin-bottom: 13.8px;
+    border-radius: 5px;
+    background-color: #F1FAFE;
+    color: #011F4B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    padding-right: 8px;
+
+    p {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .number {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-left: 9.5px;
+        margin-right: 9.5px;
+        width: 35px;
+      }
+    }
+
+    .check {
+      height: 26px;
+      width: 26px;
+      border-radius: 50%;
+      background-color: #C6EDFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 13.85px;
+      }
+    }
+
+    .removecard {
+      display: none;
+      cursor: pointer;
+      img {       
+        width: 12px;
+      }
+      position: absolute;
+      right: -25px;
+      padding: 10px 5px 10px 10px;
+      // top:-10px
+    }
+
+    &:hover {
+      background-color: #DAFAFC;
+
+      .removecard {
+        display: flex !important;
+      }
+
+      .check {
+        background-color: #8FEAF5;
+      }
+    }
+  }
+
+  .active {
+    transition: 3px all;
+    background-color: #1BC5BD !important;
+
+    p {
+      color: #FFF;
+    }
+
+    .check {
+      background: #10A09A !important;
+    }
+  }
+
+  button.add-new {
+    padding-left: 16px;
+    background: #005B96 !important;
+    color: #FFF;
+  }
+
+}
+
+
+@media (max-width: 1200px) {
+
+  .box {
+    margin-top: 38px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .credit-cards {
+    margin-top: 38px;
+  }
+
+}
+
+@media (min-height: 1000px) {
+  .for-button {
+    max-width: 450px;
+  }
+}

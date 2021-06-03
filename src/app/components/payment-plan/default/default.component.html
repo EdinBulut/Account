@@ -1,0 +1,112 @@
+<div class="box" style="height: 100%;">
+  <div class="payment-plans">
+    <div class="plan">
+      <div class="first-part">
+        <img src="../../../assets/images/starter-plan.svg">
+        <div>
+          <h2 class="title">Starter</h2>
+          <p><span class="money">$5</span> / per month</p>
+        </div>
+      </div>
+      <div class="second-part">
+        <h4>Up to 5 gateways</h4>
+        <h4>Basic support</h4>
+        <h4>Monthly updates</h4>
+        <h4>First month free</h4>
+        <h4>Cancel anytime</h4>
+        
+        <button class="select-plan" [class.active]='paymentPlan === "starter"' style="margin-bottom: 6px;"
+        (click)='changePlan("starter")'>
+        <p *ngIf='paymentPlan === "starter"'>Plan selected</p>
+        <p *ngIf='paymentPlan !== "starter"'>Select plan</p>
+        <div class="check">
+          <img src="../../../assets/images/check.svg">
+        </div>
+      </button>
+      <button *ngIf='paymentPlan === "starter"' class="select-plan " (click)='cancelSubscription("starter")'>
+        <p>Cancel subscription</p>
+        <div class="check">
+          <img src="../../../assets/images/check.svg">
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="plan">
+    <div class="first-part">
+      <img src="../../../assets/images/business-plan.svg">
+      <div>
+        <h2 class="title">Business</h2>
+        <p><span class="money">$10</span> / per month</p>
+      </div>
+    </div>
+    <div class="second-part">
+      <h4>Up to 10 gateways</h4>
+      <h4>Basic support</h4>
+      <h4>Monthly updates</h4>
+      <h4>First month free</h4>
+      <h4>Cancel anytime</h4>
+
+      <button class="select-plan" [class.active]='paymentPlan === "business"' (click)='changePlan("business")'
+      style="margin-bottom: 6px;">
+      <p *ngIf='paymentPlan === "business"'>Plan selected</p>
+      <p *ngIf='paymentPlan !== "business"'>Select plan</p>
+      <div class="check">
+        <img src="../../../assets/images/check.svg">
+      </div>
+    </button>
+    <button class="select-plan" *ngIf='paymentPlan === "business"' (click)='cancelSubscription("business")'>
+        <p>Cancel subscription</p>
+        <div class="check">
+          <img src="../../../assets/images/check.svg">
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="plan">
+    <div class="first-part">
+      <img src="../../../assets/images/enterprise-plan.svg">
+      <div>
+        <h2 class="title">Enterprise</h2>
+        <p><span class="money">$15</span> / per month</p>
+      </div>
+    </div>
+    <div class="second-part">
+      <h4>Up to 15 gateways</h4>
+      <h4>24/7 support</h4>
+      <h4>Monthly updates</h4>
+      <h4>First month free</h4>
+      <h4>Cancel anytime</h4>
+      
+      <button class="select-plan" [class.active]='paymentPlan === "enterprise"' (click)='changePlan("enterprise")'
+      style="margin-bottom: 6px;">
+      <p *ngIf='paymentPlan === "enterprise"'>Plan selected</p>
+      <p *ngIf='paymentPlan !== "enterprise"'>Select plan</p>
+      
+      <div class="check">
+        <img src="../../../assets/images/check.svg">
+      </div>
+    </button>
+    <button class="select-plan" *ngIf='paymentPlan === "enterprise"' (click)='cancelSubscription("enterprise")'>
+      <p>Cancel subscription</p>
+        <div class="check">
+          <img src="../../../assets/images/check.svg">
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div class="for-button">
+    <button type="button" (click)='savePlan()'>Save changes</button>
+  </div>
+</div>
+</div>
+
+<div class="info-message" #alertPayment>
+  <div class="message-box">
+    <a (click)= 'removeAlert()'>
+      <img src="../../../assets/images/x-icon.svg" style="width: 20px;">
+    </a>
+    <img #alertimg src="../../../../assets/images/payment-plan-active.svg" >
+    <p #alerttext></p>
+  </div>
+</div>

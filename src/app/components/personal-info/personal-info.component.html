@@ -1,0 +1,140 @@
+<div class="container content" *ngIf="this.user">
+  <div class="aside aside-info">
+    <h4 class="title">Personal info {{width}}</h4>
+    <div class="info-box">
+      <p>
+        This is the personal info section of your account.
+        Here you can easily change your basic info.
+        After you finish updating this section please click the save changes button.
+      </p>
+    </div>
+  </div>
+  <form class="box personal-info" #userForm="ngForm" novalidate (ngSubmit)='onSaveChanges()'>
+
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <h4>First name</h4>
+            <div class="search-box">
+              <input class="search-input" type="text" [class.error-border]='firstname.touched && firstname.invalid'
+              required name="firstname" [(ngModel)]="user.firstname" #firstname=ngModel
+              minlength="2" maxlength="20" pattern="[A-Z][a-zšđčćžA-ZŠĐČĆŽ]{0,19}$">
+            </div>
+            <ng-container *ngIf="firstname.invalid && firstname.touched">
+                <small class="error" *ngIf="firstname.errors?.required">First name is required.</small>
+                <small class="error" *ngIf="firstname.errors?.minlength">First name must have at least 2 letters.</small>
+                <small class="error" *ngIf="firstname.errors?.pattern">
+                  First letter must be in uppercase.
+                  Please enter only letters.
+                </small>
+            </ng-container>
+          </div>
+
+          <div class="field">
+            <h4>Last name {{user.lastname}}</h4>
+            <div class="search-box">
+              <input class="search-input" type="text" [class.error-border]='lastname.touched && lastname.invalid'
+              required name="lastname" [(ngModel)]="user.lastname" #lastname=ngModel
+              minlength="2" maxlength="20" pattern="[A-Z][a-zšđčćžA-ZŠĐČĆŽ]{0,19}$">
+            </div>
+            <ng-container *ngIf="lastname.invalid && lastname.touched">
+                <small class="error" *ngIf="lastname.errors?.required">Last name is required.</small>
+                <small class="error" *ngIf="lastname.errors?.minlength">Last name must have at least 2 letters.</small>
+                <small class="error" *ngIf="lastname.errors?.pattern">
+                  First letter must be in uppercase.
+                  Please enter only letters.
+                </small>
+            </ng-container>
+          </div>
+
+          <div class="field" *ngIf="width > 1200">
+            <h4>Password {{user.password}}</h4>
+            <div class="search-box">
+              <input class="search-input" type="password" [class.error-border]='password.touched && password.invalid'
+              required name="password" [(ngModel)]="user.password" #password=ngModel
+              minlength="8" maxlength="20" pattern="^(?=.*[!@#$%^&*`()_+\-=\[\]{};':\&quot\|,.<>\/?])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" >
+            </div>
+            <ng-container *ngIf="password.invalid">
+              <small class="error" *ngIf="!uppercase.test(user.password)">At least one uppercase letter</small>
+              <small class="error"*ngIf="!lowercase.test(user.password)">At least one lowercase letter</small>
+              <small class="error" *ngIf="!number.test(user.password)">At least one number</small>
+              <small class="error" *ngIf="!specialchar.test(user.password)">At least one special character (i.e. !)</small>
+              <small class="error" *ngIf="user.password.length<8">At least eight characters long</small>
+              <small class="error" *ngIf="password.errors?.required && password.touched">Password is required.</small>
+
+              <!-- <small class="error" *ngIf="!passwordPattern.test(user.password)">xxxxxxxxxxxxxx</small> -->
+            </ng-container>
+          </div>
+
+        </div>
+        <div class="column">
+          <div class="field">
+            <h4>Email</h4>
+            <div class="search-box">
+              <input class="search-input" type="text" [class.error-border]='email.touched && email.invalid'
+              required name="email" [(ngModel)]="user.email" #email=ngModel 
+              pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+            <ng-container *ngIf="email.invalid && email.touched">
+                <small class="error" *ngIf="email.errors?.required">Email is required.</small>
+                <small class="error" *ngIf="email.errors?.pattern">Email is not valid. </small>
+            </ng-container>
+          </div>
+          <div class="field">
+            <h4>Mobile phone</h4>
+            <div class="search-box">
+              <input class="search-input" type="text" [class.error-border]='phone.touched && (phone.invalid || !isit11or12())' 
+              (blur)='isit11or12()' (click)='add12th()' [textMask]="{mask: mask}"
+              required name="phone" [(ngModel)]="user.phone" #phone=ngModel>
+            </div>
+            <ng-container *ngIf="phone.touched">
+                <small class="error" *ngIf="phone.errors?.required">Mobile phone is required.</small>
+                <small class="error" *ngIf="!isit11or12()">Please enter valid phone number.</small>
+            </ng-container>
+          </div>
+          <div class="field" *ngIf="width <= 1200">
+            <h4>Password {{user.password}}</h4>
+            <div class="search-box">
+              <input class="search-input" type="password"  [class.error-border]='password.touched && password.invalid'
+              required name="password" [(ngModel)]="user.password" #password=ngModel
+              minlength="8" maxlength="20" pattern="^(?=.*[!@#$%^&*`()_+\-=\[\]{};':\&quot\|,.<>\/?])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" >
+            </div>
+            <ng-container *ngIf="password.invalid">
+              <small class="error" *ngIf="!uppercase.test(user.password)">At least one uppercase letter</small>
+              <small class="error"*ngIf="!lowercase.test(user.password)">At least one lowercase letter</small>
+              <small class="error" *ngIf="!number.test(user.password)">At least one number</small>
+              <small class="error" *ngIf="!specialchar.test(user.password)">At least one special character (i.e. !)</small>
+              <small class="error" *ngIf="user.password.length<8">At least eight characters long</small>
+              <small class="error" *ngIf="password.errors?.required && password.touched">Password is required.</small>
+              <!-- <small class="error" *ngIf="!passwordPattern.test(user.password)">xxxxxxxxxxxxxx</small> -->
+            </ng-container>
+          </div>
+          <div class="field">
+            <h4>Confirm password</h4>
+            <div class="search-box" >
+              <input class="search-input" type="password" [class.error-border]='confirm.touched && confirm.invalid'
+              required name="confirm" [(ngModel)]="confirmPassword" #confirm=ngModel>
+            </div>
+            <ng-container *ngIf="confirm.touched">
+              <small class="error" *ngIf="confirm.errors?.required">Please confirm your password.</small>
+              <small class="error" *ngIf="user.password !== confirmPassword && !confirm.errors?.required">Please make sure your passwords match.</small>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+    <div class="for-button">
+      <button type="submit">Save changes</button>
+    </div>
+  </form>
+</div>
+
+<div class="info-message" #alertPersonal>
+  <div class="message-box">
+    <a (click)= 'removeAlert()'>
+      <img src="../../../assets/images/x-icon.svg" style="width: 20px;">
+    </a>
+    <img src="../../../assets/images/personal-info-active.svg" >
+    <p #alerttext></p>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container content">
+  <div class="aside aside-info">
+    <h4 class="title">Personal info</h4>
+    <div class="info-box">
+      <p>
+        This is the billing section of your account. 
+        Here you can see overview of your credit card transactions.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio corrupti vero vitae autem quos sed.
+      </p>
+    </div>
+  </div>
+  <div class="box">
+    <div class="card">
+      <div class="card-top">
+        <h4>Billing information</h4>
+        <p>Overview of your credit card transactions</p>
+      </div>
+
+      <!-- <div class="card-body"> -->
+        <table class="table">
+
+            <tr>
+              <th>Subscription plan</th>
+              <th>Amount paid</th>
+              <th>Paid at</th>
+            </tr>
+          
+            <tr>
+              <td>Starter</td>
+              <td>3964 USD</td>
+              <td>{{date1 | date : 'MM/dd/yyyy hh:mm:ss'}}</td>
+            </tr>
+            <tr>
+              <td>Business</td>
+              <td>2254 USD</td>
+              <td>{{date2 | date : 'MM/dd/yyyy hh:mm:ss'}}</td>
+            </tr>
+            <tr>
+              <td>Enterprise</td>
+              <td>3547 USD</td>
+              <td>{{date3 | date : 'MM/dd/yyyy hh:mm:ss'}}</td>
+            </tr>
+        </table>
+        
+      <!-- </div> -->
+    </div>
+  </div>
+</div>

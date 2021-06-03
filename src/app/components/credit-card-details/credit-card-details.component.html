@@ -1,0 +1,100 @@
+<div class="container content" *ngIf="user">
+  <div class="aside aside-info">
+    <h4 class="title">Your credit card</h4>
+    <div class="info-box">
+      <p>
+        Select a valid credit card for your Balance account or add a new card by clicking add new card and filling out
+        the required card information on the left.
+        New card can be selected after being added on the list below.
+      </p>
+    </div>
+    <div class="credit-cards">
+      <button class="add-new card" (click)='addNew()'>
+        <p>+ Add new card</p>
+      </button>
+      <ng-container *ngFor="let creditCard of user.creditCards">
+        <button class="card" (click)='selectCard(creditCard)' [class.active]='cardId===creditCard.id' >
+          <div class="number">
+            <img *ngIf="cardId===creditCard.id, else notselected" src="../../../assets/images/credit-card-selected.svg">
+            <ng-template #notselected>
+              <img src="../../../assets/images/credit-card-active.svg">
+            </ng-template>
+            <p>{{creditCard.number | makeSpace}}</p>
+          </div>
+          <div class="check" >
+            <img *ngIf="cardId===creditCard.id" src="../../../assets/images/check.svg">
+          </div>
+          <a *ngIf="cardId!==creditCard.id && user.creditCards.length > 1" class="removecard" (click)='removeCard(creditCard.id)'>
+            <img  src="../../../assets/images/x-icon.svg">
+          </a>
+          
+        </button> 
+      </ng-container>
+
+    </div>
+  </div>
+  <form class="box credit-card" #cardForm="ngForm" novalidate (ngSubmit)='onSaveChanges()'>
+    <div class="field alone-field">
+      <h4>Card number</h4>
+      <div class="search-box">
+        <input class="search-input" type="text" [class.error-border]='number.touched && (number.invalid || invalidCardNumber())' 
+          required name="number" [(ngModel)]="selectedCard.number" #focusInput
+          #number=ngModel [textMask]="{mask: mask}">
+      </div>
+      <ng-container *ngIf="number.touched">
+        <small class="error" *ngIf="number.errors?.required">Card number is required.</small>
+        <small class="error" *ngIf="invalidCardNumber()">Card number must have 16 digits.</small>
+      </ng-container>
+    </div>
+    <div class="columns">
+      <div class="field">
+        <h4>Expiration month</h4>
+      <div class="search-box">
+        <input class="search-input" type="text" [class.error-border]='month.touched && (month.invalid || greaterThan12())'
+          required name="month" [(ngModel)]="selectedCard.expirationMonth"
+          #month=ngModel maxlength="2" pattern="^[0-9]*$" (input)='greaterThan12()'>
+      </div>
+      <ng-container *ngIf="month.touched">
+        <small class="error" *ngIf="month.errors?.required">Expiration month is required.</small>
+        <small class="error" *ngIf="month.errors?.pattern">Please enter only numbers.</small>
+        <small class="error" *ngIf="greaterThan12()" >Enter number from 1 to 12.</small>
+      </ng-container>
+      </div>
+      <div class="field">
+        <h4>Expiration year</h4>
+      <div class="search-box">
+        <input class="search-input" type="text" [class.error-border]='year.touched && (year.invalid || invalidYear())' 
+        required name="year" [(ngModel)]="selectedCard.expirationYear"
+          #year=ngModel maxlength="4" minlength="4" pattern="^[0-9]*$">
+      </div>
+      <ng-container *ngIf="year.touched">
+        <small class="error" *ngIf="year.errors?.required">Expiration year is required.</small>
+        <small class="error" *ngIf="year.errors?.minlength">Expiration year must have 4 digits.</small>
+        <small class="error" *ngIf="year.errors?.pattern">Please enter only numbers.</small>
+        <small class="error" *ngIf="invalidYear() && !year.errors?.minlength">Invalid year.</small>
+      </ng-container>
+      </div>
+    </div>
+    <div class="for-button">
+      <button type="submit">
+        <span *ngIf="cardId !== ''" >Save changes</span> 
+        <span *ngIf="cardId === ''" >Add card</span> 
+      </button>
+    </div>
+  </form>
+</div>
+
+
+<div class="info-message" #alertCards>
+  <div class="message-box">
+    <a (click)='removeAlert()'>
+      <img src="../../../assets/images/x-icon.svg" style="width: 20px;">
+    </a>
+    <img src="../../../assets/images/credit-card-active.svg" >
+    <p id='alerttext'></p>
+    <div id='buttons' class="buttons">
+      <button (click)='finalRemove()'>Yes</button>
+      <button (click)='removeAlert()'>No</button>
+    </div>
+  </div>
+</div>

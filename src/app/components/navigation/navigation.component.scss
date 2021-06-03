@@ -1,0 +1,142 @@
+.aside {
+  h2 {
+    line-height: 28px;
+    margin-top: 35px;
+    margin-bottom: 5px;
+    // font-weight: bold;
+  }
+  p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #7E8299;
+    line-height: 19px;
+    white-space: nowrap;
+  }
+
+  .user-info-box {
+    height: 81px;
+    background: #F1FAFE;
+    border-radius: 10px;
+    margin-top: 27px;
+    display: flex;
+    align-items: center;
+  }
+
+  .circle {
+    width: 64px;
+    height: 64px;
+    background: #F6CA65;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 29px;
+      font-weight: bold;
+      color: #FFFFFF;
+    }
+  }
+
+  .user-info {
+    p {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16.4px;
+    }
+    h4 {
+    margin-bottom: 1px;
+    // line-height: 1.2;
+    }
+  }
+}
+
+
+
+.navigation {
+  width: 100%;
+  // max-width: 576px;
+  // box-sizing: content-box;
+  max-width: 614px;
+  height: 85px;
+  margin-top: 113px;
+  display: flex;
+  justify-content: space-between;
+  .nav {
+    padding: 0 5px;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    // justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    .wrapper {
+      // height: 100%;
+      display: flex;
+      align-items: center;
+      img {
+        margin-bottom: 28px;
+      }
+    }
+    &:last-of-type {
+      padding-right: 19px;
+    }
+    &:first-of-type {
+      padding-left: 19px;
+    }
+    &:hover {
+
+      p {
+        color: #95DEFA;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.2;
+      height: 17px;
+      color: #CCC;
+      margin-bottom: 1px !important;
+    }
+  }
+}
+
+.active {
+  color:#0DB2F2  !important
+}
+
+
+
+@media (max-width: 768px) {
+  .aside {
+    margin-bottom: 38px;
+  }
+  .navigation {
+    margin-top: 28px;
+    max-width: 500px;
+  }
+}
+@media (max-width: 450px) {
+  .navigation .nav {
+
+    p{
+      flex-grow: .5;
+    }
+    &:last-of-type {
+      padding-right: 5px;
+    }
+    &:first-of-type {
+      padding-left: 5px;
+    }
+  }
+}
+
+
+
+
+
+
+

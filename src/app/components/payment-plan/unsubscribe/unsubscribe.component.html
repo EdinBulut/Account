@@ -1,0 +1,38 @@
+<div class="unsubscribe">
+  <div class="part">
+    <h2>We are sorry to see you go</h2>
+    <p>
+      Before you unsubscribe consider changing the payment plan.
+      If you are uncertain which plan best suites your business do not hesitate to contact our
+      support and we will do our best to assist you in choosing th right plan for you.
+    </p>
+  </div>
+  <div class="part">
+    <h3>OUR JOURNEY SO FAR</h3>
+    <div class="boxes">
+      <div class="box">
+        <p class="value">4</p>
+        <p class="title">PROJECTS</p>
+      </div>
+      <div class="box">
+        <p class="value">3</p>
+        <p class="title">GATEWAYS</p>
+      </div>
+      <div class="box">
+        <p class="value">$14K</p>
+        <p class="title">PAYMENTS</p>
+      </div>
+    </div>
+  </div>
+  <div class="part">
+    <h2>Are you sure you want to unsubscribe?</h2>
+    <p>
+      If you cancel your subscription you won't be able to use any of the platform features
+      and your payments will be discontinued.
+    </p>
+    <div class="buttons">
+      <button  [routerLink]="['/payment-plan']">Cancel</button>
+      <button [routerLink]="['/payment-plan/cancelled']" (click)='confirm()'>Confirm</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div #cancelled class="cancelled" style="overflow: hidden;">
+  <div class="blue">
+  </div>
+  <div class="white">
+    <div class="message">
+      <h2>You have cancelled your subscription</h2>
+      <a [routerLink]="['/payment-plan']" (click)='goBack()'>If you wish to continue using our platform please renew your subscription</a>
+    </div>
+  </div>
+  <div class="wrapper">
+    <img src="../../../../assets/images/cancelled.svg" alt="">
+  </div>
+</div>

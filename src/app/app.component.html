@@ -1,0 +1,12 @@
+
+<div style="height: 100vh; display: flex; flex-direction: column; margin: auto;">
+
+  <app-header [user]='user'></app-header>
+  <app-navigation [user]='user'></app-navigation>
+
+  <div style="flex-grow: 1;">
+    <router-outlet ></router-outlet>
+  </div>
+    <app-footer></app-footer>
+
+  </div>

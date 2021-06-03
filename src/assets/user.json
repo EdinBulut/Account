@@ -1,0 +1,25 @@
+[{
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "john.doe@email.com",
+  "phone": "387 61 123 456",
+  "password": "Macka123!",
+  "paymentPlan": "starter",
+  "creditCards": [{
+
+      "id": "1",
+      "expirationDate": "2025-09-02T21:15:56.003Z",
+      "number": "1234567891015678"
+    },
+    {
+      "id": "2",
+      "expirationDate": "2023-03-02T21:15:56.003Z",
+      "number": "1234567891013456"
+    },
+    {
+      "id": "3",
+      "expirationDate": "2024-01-02T21:15:56.003Z",
+      "number": "1234567891013210"
+    }
+  ]
+}]

@@ -1,0 +1,18 @@
+<div class="wrapper" *ngIf="this.user">
+<div class="header">
+
+    <div class="burger">
+      <img src="../../../assets/images/burger.svg" alt="">
+    </div>
+    
+    <div class="user">
+      <div class="initials">
+        <p>{{user.firstname.split('')[0]}}{{user.lastname.split('')[0]}}</p>
+    </div>
+    <div class="name">
+      <p>{{user.firstname}} {{user.lastname}}</p>
+    </div>
+  </div>
+  
+</div>
+</div>

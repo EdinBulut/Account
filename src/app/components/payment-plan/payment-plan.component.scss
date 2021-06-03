@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%; 
+  margin-right: 81px;
+  overflow: hidden;
+}
+
+
+@media (max-width: 1200px) {
+  .wrapper {
+    margin-right: 28px;
+  }
+}
+@media (max-width: 992px) {
+  .wrapper {
+    margin-right: 9px;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper {
+    margin-right: 0px;
+  }
+}
