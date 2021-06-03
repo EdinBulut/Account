@@ -48,12 +48,14 @@ export class PersonalInfoComponent implements OnInit {
 
   }
 
-  // ngAfterContentInit(): void {
-  //   setTimeout(() => {
-  //     let x: any = localStorage.getItem('user') || history.state.data;
-  //     this.user = JSON.parse(x)
-  //   }, 100);
-  // }
+  ngAfterContentInit(): void {
+    setTimeout(() => {
+      let x: any = localStorage.getItem('user') || history.state.data;
+      this.user = JSON.parse(x)
+      if(this.user.phone.split(' ').join('').split('_')[0].length ===11 ) 
+      this.mask = ['3', '8','7', ' ', /\d/,  /\d/, ' ',/\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/ ]
+    }, 300);
+  }
 
   onSaveChanges() {
     if (this.userForm.valid && this.userForm.dirty && this.passwordPattern.test(this.user.password) 
