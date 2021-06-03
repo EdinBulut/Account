@@ -20,7 +20,7 @@ export class PersonalInfoComponent implements OnInit {
   uppercase = /[A-Z]+/;
   lowercase = /[a-z]+/;
   number = /[0-9]+/;
-  confirmPassword = 'Macka123!';
+  confirmPassword = '';
   mask = ['3', '8','7', ' ', /\d/,  /\d/, ' ',/\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/ ] 
 
   width = window.innerWidth;
@@ -67,15 +67,16 @@ export class PersonalInfoComponent implements OnInit {
       );
       this.dataService.sendData(this.user);
 
-    } else if (!this.userForm.dirty) {
-      this.alerttext.nativeElement.innerText = "You haven't made any changes."
-      this.alertPersonal.nativeElement.style.display = 'flex';
-    }
-    else {
+    } else if (!this.userForm.valid) {
       Object.keys(this.userForm.controls).forEach(key => {
         this.userForm.controls[key].markAllAsTouched();
       });
     }
+    else if (!this.userForm.dirty) {
+      this.alerttext.nativeElement.innerText = "You haven't made any changes."
+      this.alertPersonal.nativeElement.style.display = 'flex';
+    }
+    
   }
 
   removeAlert() {

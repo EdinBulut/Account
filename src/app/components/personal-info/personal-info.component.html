@@ -1,6 +1,6 @@
 <div class="container content" *ngIf="this.user">
   <div class="aside aside-info">
-    <h4 class="title">Personal info {{width}}</h4>
+    <h4 class="title">Personal info</h4>
     <div class="info-box">
       <p>
         This is the personal info section of your account.
@@ -31,7 +31,7 @@
           </div>
 
           <div class="field">
-            <h4>Last name {{user.lastname}}</h4>
+            <h4>Last name</h4>
             <div class="search-box">
               <input class="search-input" type="text" [class.error-border]='lastname.touched && lastname.invalid'
               required name="lastname" [(ngModel)]="user.lastname" #lastname=ngModel
@@ -48,7 +48,7 @@
           </div>
 
           <div class="field" *ngIf="width > 1200">
-            <h4>Password {{user.password}}</h4>
+            <h4>Password</h4>
             <div class="search-box">
               <input class="search-input" type="password" [class.error-border]='password.touched && password.invalid'
               required name="password" [(ngModel)]="user.password" #password=ngModel
@@ -93,7 +93,7 @@
             </ng-container>
           </div>
           <div class="field" *ngIf="width <= 1200">
-            <h4>Password {{user.password}}</h4>
+            <h4>Password</h4>
             <div class="search-box">
               <input class="search-input" type="password"  [class.error-border]='password.touched && password.invalid'
               required name="password" [(ngModel)]="user.password" #password=ngModel

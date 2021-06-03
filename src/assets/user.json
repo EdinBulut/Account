@@ -3,7 +3,7 @@
   "lastname": "Doe",
   "email": "john.doe@email.com",
   "phone": "387 61 123 456",
-  "password": "Macka123!",
+  "password": "",
   "paymentPlan": "starter",
   "creditCards": [{
 
