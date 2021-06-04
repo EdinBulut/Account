@@ -19,42 +19,46 @@
     <div class="navigation">
       <div class="nav" (click)='onNavigate("personal-info")' 
       (mouseover)='hover("personal-info")' (mouseout)='unhover("personal-info")'>
-        <div class="wrapper">
+      
           <img *ngIf='selected === "personal-info", else img1' src="../assets/images/personal-info-active.svg" >
           <ng-template #img1>
             <img id='personal-info' src="../assets/images/personal-info.svg" >
           </ng-template>
+        <div class="wrapper">
+          <p [class.active]='selected === "personal-info"'>Personal info</p>
         </div>
-        <p [class.active]='selected === "personal-info"'>Personal info</p>
       </div>
       <div class="nav"  (click)='onNavigate("credit-card")'
       (mouseover)='hover("credit-card")' (mouseout)='unhover("credit-card")'>
-        <div class="wrapper">
+   
           <img *ngIf='selected === "credit-card", else img2' src="../assets/images/credit-card-active.svg" >
           <ng-template #img2>
             <img id='credit-card' src="../assets/images/credit-card.svg" >
           </ng-template>
-        </div>
-        <p [class.active]='selected === "credit-card"'>Credit card details</p>
+          <div class="wrapper">
+            <p [class.active]='selected === "credit-card"'>Credit card details</p>
+          </div>
       </div>
       <div class="nav" (click)='onNavigate("payment-plan")'
       (mouseover)='hover("payment-plan")' (mouseout)='unhover("payment-plan")'>
-        <div class="wrapper">
+ 
           <img *ngIf='selected === "payment-plan", else img3' src="../assets/images/payment-plan-active.svg" >
           <ng-template #img3>
             <img id='payment-plan' src="../assets/images/payment-plan.svg" >
           </ng-template>
-        </div>
-        <p [class.active]='selected === "payment-plan"'>Payment plan</p>
+          <div class="wrapper">
+            <p [class.active]='selected === "payment-plan"'>Payment plan</p>
+          </div>
       </div>
       <div class="nav" [routerLink]="['/billing']" (click)='selected = "billing"' (mouseover)='hover("billing")' (mouseout)='unhover("billing")'>
-        <div class="wrapper">
+    
           <img *ngIf='selected === "billing", else img4' class="img4" src="../assets/images/billing-active.svg" >
           <ng-template #img4>
             <img class="img4" id='billing' src="../assets/images/billing.svg" >
           </ng-template>
-        </div>
-        <p [class.active]='selected === "billing"'>Billing</p>
+          <div class="wrapper">
+            <p [class.active]='selected === "billing"'>Billing</p>
+          </div>
       </div>
     </div>
   </div>

@@ -7,7 +7,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() user: User | undefined;
+  @Input() user!: User;
 
   constructor() { }
 

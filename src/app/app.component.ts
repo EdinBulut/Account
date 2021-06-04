@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   user!: User;
   subscription!: Subscription;
+  showApp = false;
 
   constructor(private userService: UserService, private dataService: DataService, private router: Router) {
 
@@ -22,8 +23,8 @@ export class AppComponent {
   ngOnInit(): void {
 
     let x: any = localStorage.getItem('user');
-    this.user = JSON.parse(x)
-    if (this.user === null) {
+    if (JSON.parse(x) !== null) this.user = JSON.parse(x)
+    else if (JSON.parse(x) === null) {
 
       this.userService.getUser().subscribe(data=> {
           this.user = data[0];
@@ -38,6 +39,10 @@ export class AppComponent {
     // this.subscription = this.dataService.getData().subscribe(x => this.user = x)
     this.subscription = this.dataService.getData()
     .subscribe(() => {let x: any = localStorage.getItem('user'); this.user = JSON.parse(x)})
+
+    setTimeout(() => {
+      this.showApp = true
+    }, 500);
   }
 
 

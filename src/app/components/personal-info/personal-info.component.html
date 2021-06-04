@@ -1,4 +1,4 @@
-<div class="container content" *ngIf="this.user">
+<div class="container content" >
   <div class="aside aside-info">
     <h4 class="title">Personal info</h4>
     <div class="info-box">
@@ -9,8 +9,7 @@
       </p>
     </div>
   </div>
-  <form class="box personal-info" #userForm="ngForm" novalidate (ngSubmit)='onSaveChanges()'>
-
+  <form class="box personal-info" #userForm="ngForm" novalidate (ngSubmit)='onSaveChanges()' *ngIf="user">
       <div class="columns">
         <div class="column">
           <div class="field">
@@ -112,7 +111,7 @@
           <div class="field">
             <h4>Confirm password</h4>
             <div class="search-box" >
-              <input class="search-input" type="password" [class.error-border]='confirm.touched && confirm.invalid'
+              <input class="search-input" type="password" [class.error-border]='confirm.touched && (confirm.invalid || user.password !== confirmPassword)'
               required name="confirm" [(ngModel)]="confirmPassword" #confirm=ngModel>
             </div>
             <ng-container *ngIf="confirm.touched">

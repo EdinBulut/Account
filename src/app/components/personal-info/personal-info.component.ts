@@ -68,6 +68,9 @@ export class PersonalInfoComponent implements OnInit {
         JSON.stringify(this.user)
       );
       this.dataService.sendData(this.user);
+      Object.keys(this.userForm.controls).forEach(key => {
+        this.userForm.controls[key].markAsPristine();
+      });
 
     } else if (!this.userForm.valid) {
       Object.keys(this.userForm.controls).forEach(key => {
@@ -99,13 +102,4 @@ export class PersonalInfoComponent implements OnInit {
     this.mask = ['3', '8','7', ' ', /\d/,  /\d/, ' ',/\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]
   }
 
-  // removeUnderscore() {
-  //   let numbers = this.user.phone.split(' ').join('').split('_')[0]   
-  //   if(numbers.length===11) {
-  //     this.mask = ['3', '8','7', ' ', /\d/,  /\d/, ' ',/\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/ ]
-  //   } else if (numbers.length===12) {
-  //     this.mask = ['3', '8','7', ' ', /\d/,  /\d/, ' ',/\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/ ]
-  //   }
-  //   return this.mask
-  // }
 }

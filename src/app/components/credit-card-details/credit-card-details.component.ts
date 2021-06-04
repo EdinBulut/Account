@@ -56,6 +56,9 @@ export class CreditCardDetailsComponent implements OnInit {
           expirationYear: new Date(x.expirationDate).getFullYear()
         }
         this.focusInput.nativeElement.scrollIntoView({ behavior: "smooth" })
+        Object.keys(this.cardForm.controls).forEach(key => {
+          this.cardForm.controls[key].markAsPristine();
+        });
       }
     }, 0);
   }
@@ -98,6 +101,7 @@ export class CreditCardDetailsComponent implements OnInit {
         if (text !== null) text.innerText = 'You have saved your changes on credit card details successfully.'
       } else {
         this.user.creditCards.push(finalCreditCard)
+        this.cardId = finalCreditCard.id;
         if (text !== null) text.innerText = 'You have added your new credit card successfully.'
       }
       localStorage.setItem(
