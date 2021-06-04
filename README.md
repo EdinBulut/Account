@@ -1,7 +1,9 @@
 # Edit account (https://edit-account.web.app/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+
 I have implemented the design as seen [here](https://1drv.ms/b/s!AgKS1Yt09Pz9hR5cbUODD809PNaV).
+
 Webpage is responsive.
 
 ## About app
